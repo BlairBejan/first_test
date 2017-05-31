@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'ourApp/css/main.css' %}" media="screen" title="no title"  charset="utf-8">
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <header>
+      <h1>Dojo Secrets</h1>
+      <div class="register">
+        <h3>Register</h3>
+        <form class="" action="/register" method="post">
+          {% csrf_token %}
+          <label for="">First Name:</label>
+          <input type="text" name="name" value="">
+          <label for="">User Name:</label>
+          <input type="text" name="username" value="">
+          <label for="">Password</label>
+          <input type="password" name="password" value="">
+          <label for="">Confirm Password:</label>
+          <input type="password" name="confirmpassword" value="">
+          <label for="">Date Hired:</label>
+          <input type="date" name="date" value="">
+          <button type="submit" name="button">Register</button>
+        </form>
+      </div>
+      {% if messages %}
+      {% for message in messages %}
+      <p>{{message}}</p>
+      {% endfor %}
+      {% endif %}
+      <div class="login">
+        <h3>Login</h3>
+        <form class="" action="/login" method="post">
+          {% csrf_token %}
+          <label for="">User Name:</label>
+          <input type="text" name="username" value="">
+          <label for="">Password:</label>
+          <input type="password" name="password" value="">
+          <button type="submit" name="button">Log In</button>
+        </form>
+
+      </div>
+    </header>
+  </body>
+</html>
